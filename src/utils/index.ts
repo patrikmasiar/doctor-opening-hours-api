@@ -23,7 +23,7 @@ const getRandomDate = (start: Moment, end: Moment) => {
 };
 
 
-export const generateOccupiedTerms = () => {
+export const generateOccupiedTerms = (): Moment[] => {
   try {
     const dates: Moment[] = [];
     const start = moment().add(1, 'day');
@@ -33,7 +33,9 @@ export const generateOccupiedTerms = () => {
       const randomDate = getRandomDate(start, end);
   
       const formattedDate = moment(randomDate).format('YYYY-MM-DD');
-      dates.push(moment(formattedDate))
+      if (![6,0].includes(randomDate.day())) {
+        dates.push(moment(formattedDate))
+      }
     }
   
     dates.forEach((date, index) => {
