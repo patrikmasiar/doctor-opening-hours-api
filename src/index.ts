@@ -1,5 +1,6 @@
 import express from 'express';
 import routes from './routes';
+import cors from 'cors';
 
 const app = express();
 
@@ -13,6 +14,8 @@ app.use((err, req, res, next) => {
     data: null,
   });
 })
+
+app.use(cors());
 app.use(routes);
 
 async function start(): Promise<void> {

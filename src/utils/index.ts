@@ -22,7 +22,6 @@ const getRandomDate = (start: Moment, end: Moment) => {
   return moment(randomNumber);
 };
 
-
 export const generateOccupiedTerms = (): Moment[] => {
   try {
     const dates: Moment[] = [];
