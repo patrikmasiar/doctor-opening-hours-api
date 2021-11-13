@@ -11,6 +11,16 @@
 | ROUTE | METHOD | RESPONSE
 |:-------------|:-------------|:-------------|
 | `/occupied-items` | **GET** | `Moment[]` |
+| `/reservation` | **POST* | `Reservation` |
+
+### Types
+```javascript
+type Reservation = {
+  date: string;
+  start: string;
+  end: string;
+};
+```
 
 #### Example
 `http://localhost:3010/occupied-items`
