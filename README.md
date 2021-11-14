@@ -10,7 +10,7 @@
 
 | ROUTE | METHOD | RESPONSE
 |:-------------|:-------------|:-------------|
-| `/occupied-items` | **GET** | `Moment[]` |
+| `/reservation/all` | **GET** | `Reservation[]` |
 | `/reservation` | **POST* | `Reservation` |
 
 ### Types
