@@ -1,19 +1,19 @@
 import express from "express";
 import routes from "./routes";
 import cors from "cors";
-// import mongoose from "mongoose";
-// import { config } from "dotenv";
+import mongoose from "mongoose";
+import { config } from "dotenv";
 
-// config();
+config();
 
 const app = express();
 
-// mongoose
-//   .connect(process.env.DATABSE_URL)
-//   .then(() => {
-//     console.log("Database connected");
-//   })
-//   .catch((error) => console.log(error));
+mongoose
+  .connect(process.env.DATABASE_URL)
+  .then(() => {
+    console.log("Database connected");
+  })
+  .catch((error) => console.log(error));
 
 app.use(express.json());
 app.use((err, req, res, next) => {
