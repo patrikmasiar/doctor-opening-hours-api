@@ -2,26 +2,46 @@ import express, {
   Request,
   Response,
 } from 'express';
+import ReservationModel from 'models/Reservation';
 import { Reservation } from 'types/Reservation';
-import { generateOccupiedTerms } from '../utils';
 
 const router = express.Router();
 
-router.get('/occupied-terms', async (req: Request, res: Response) => {
+router.get('reservation/all', async (req: Request, res: Response) => {
   res.status(200).json({
-    error: null,
-    data: generateOccupiedTerms(),
-  });
+          error: null,
+          data: "Hello world"
+        });
+  // ReservationModel.find({}, (err, found) => {
+  //   if (!err) {
+  //     res.status(200).json({
+  //       error: null,
+  //       data: found,
+  //     });
+  //   } else {
+  //     res.status(200).json({
+  //       error: "No reservations found",
+  //       data: null,
+  //     });
+  //   }
+  // });
 });
 
-router.post('reservation', async (req: Request, res: Response) => {
-  const reservation: Reservation = req.body.reservation;
+router.post('/reservation', async (req: Request, res: Response) => {
+  const reservationData: Reservation = req.body.reservation;
 
-  // TODO: validation
+  const reservation = new ReservationModel(reservationData);
 
-  res.status(200).json({
-    error: null,
-    data: reservation,
+  reservation.save().then(() => {
+    res.status(200).json({
+      error: null,
+      data: reservationData,
+    });
+  }).catch((error) => {
+    res.status(200).json({
+      error,
+      data: null
+    });
   });
 });
 
