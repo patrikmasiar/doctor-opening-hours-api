@@ -32,7 +32,7 @@ router.get('/reservation/all', async (req: Request, res: Response) => {
 });
 
 router.post('/reservation', async (req: Request, res: Response) => {
-  const reservationData: Reservation = req.body.reservation;
+  const reservationData = req.query as Reservation;
   const reservation = new ReservationModel(reservationData);
 
   reservation.save().then(() => {
