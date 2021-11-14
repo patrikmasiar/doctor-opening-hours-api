@@ -22,7 +22,7 @@
     "mongoose": "^6.0.12"
   },
   "scripts": {
-    "start": "ENV=PRODUCTION node dist/index.js",
+    "start": "yarn build && ENV=PRODUCTION node dist/index.js",
     "run": "tsc -w & nodemon -q -w dist dist/index.js",
     "build": "ENV=PRODUCTION tsc",
     "lint": "eslint . --ext .ts"
