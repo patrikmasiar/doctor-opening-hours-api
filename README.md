@@ -1,8 +1,7 @@
 # API for doctor opening hours applications
 
 ## Getting started
-1. Run `yarn build` to build an app
-2. Run `yarn start` to start a server
+1. Run `yarn start` to build an app and start a server
 
 ## API docs
 
