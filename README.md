@@ -4,7 +4,6 @@
 1. Run `yarn start` to build an app and start a server
 
 ## API docs
-
 ### Routes
 
 | ROUTE | METHOD | RESPONSE
@@ -22,4 +21,4 @@ type Reservation = {
 ```
 
 #### Example
-`http://localhost:3010/occupied-items`
+`http://localhost:3010/reservation/all`
